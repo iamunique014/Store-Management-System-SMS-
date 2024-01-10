@@ -21,6 +21,8 @@ namespace Order_Management_System_OMS_
         BusinessLogicLayer bll = new BusinessLogicLayer();
         string categoryID = "2";
         string itemID = "1";
+        string errorMessage;
+        bool empty = false;
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             categoryID = cmbCategory.SelectedValue.ToString();
@@ -32,6 +34,7 @@ namespace Order_Management_System_OMS_
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            
             Item item = new Item(int.Parse(itemID));
             int x = bll.DeleteProduct(item);
             dgvItems.DataSource= bll.GetProduct();
@@ -54,10 +57,45 @@ namespace Order_Management_System_OMS_
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            categoryID = cmbCategory.SelectedValue.ToString();
-            Item item = new Item(int.Parse(categoryID), int.Parse(itemID),txtName.Text, txtDesign.Text, txtPrice.Text, DateTime.Parse(dtpItemDate.Text));
-            int x = bll.InsertProduct(item);
-            dgvItems.DataSource = bll.GetProduct();
+            //void method that helps make sure no empty string is sent to the database 
+            HandleEmptyString(errorMessage, empty);
+        }
+        public void HandleEmptyString(string errorMessage, bool empty)
+        {
+            //check for empty text Boxes the create or increment to errorMessage
+            if (txtName.Text == "")
+            {
+                errorMessage = "ITEM NAME IS REQUIRED";
+                empty = true;
+            }
+            if (txtDesign.Text == "")
+            {
+                errorMessage = errorMessage + "\nITEM MANUFACTURER IS REQUIRED";
+                empty = true;
+            }
+            if (cmbCategory.Text == "")
+            {
+                errorMessage = errorMessage + "\nITEM CATEGORY IS REQUIRED";
+                empty = true;
+            }
+            if (txtPrice.Text == "")
+            {
+                errorMessage = errorMessage + "\nITEM PRICE IS REQUIRED";
+                empty = true;
+            }
+
+            //check if there was any empty text if not then send Data to Database else Display Error Message
+            if (empty == false)
+            {
+                categoryID = cmbCategory.SelectedValue.ToString();
+                Item item = new Item(int.Parse(categoryID), int.Parse(itemID), txtName.Text, txtDesign.Text, txtPrice.Text, DateTime.Parse(dtpItemDate.Text));
+                int x = bll.InsertProduct(item);
+                dgvItems.DataSource = bll.GetProduct();
+            }
+            else
+            {
+                MessageBox.Show(errorMessage, "PLEASE ENTER REQUIRED DATA");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
