@@ -103,10 +103,18 @@ namespace Order_Management_System_OMS_
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             dgvCustomers.DataSource = bll.GetClients();
+
+            //Clear all crontrols
+            txtName.Text = "";
+            txtSurname.Text = "";
+            txtAddress.Text = "";
+            txtEmail.Text = "";
+            customerID = "0";
         }
 
         private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Get seleted record and display to relavant controls
 
             if(e.RowIndex >= 0) 
             { 
