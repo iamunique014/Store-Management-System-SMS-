@@ -90,26 +90,38 @@ namespace Order_Management_System_OMS_
         
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-           quantity = (int)nQuantity.Value;
-            string message = "Name: " + name + "\n" + "Quantity: " + quantity + "\n" + "Price: " + price;
-            MessageBox.Show("You are about to Add " +"\n\n" + message + " to your Cart");
-            if( dgvOrderItem.DataSource == null)
+            quantity = (int)nQuantity.Value;
+
+            string message = quantity + " " + name + " @ R" + price + " each";
+
+            //Display items is going to be added to cart if user clicks the yes button on message box
+            if(MessageBox.Show("Add " + message + " to your Cart","Add To Cart", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                dtCart.Columns.AddRange(new DataColumn[4] { new DataColumn("ItemID"), new DataColumn("ItemName"), new DataColumn("Price"), new DataColumn("Quantity") });
-                dtCart.Rows.Add(itemID, name, price, quantity);
-            }
-            else if( dgvOrderItem.DataSource != null)
-            {
-                dtCart.Rows.Add(itemID, name, price, quantity);
+                if (dgvOrderItem.DataSource == null)
+                {
+                    dtCart.Columns.AddRange(new DataColumn[4] { new DataColumn("ItemID"), new DataColumn("ItemName"), new DataColumn("Price"), new DataColumn("Quantity") });
+                    dtCart.Rows.Add(itemID, name, price, quantity);
+                }
+                else if (dgvOrderItem.DataSource != null)
+                {
+                    dtCart.Rows.Add(itemID, name, price, quantity);
+                }
             }
 
+
+
+
+           
+            //display all items from cart to the orderItems datagrid view 
             dgvOrderItem.DataSource = dtCart;
 
+            //Calculate the order total 
             while (numOfRows < dtCart.Rows.Count)
             {
                 orderTotal += int.Parse(dtCart.Rows[numOfRows]["Price"].ToString()) * int.Parse(dtCart.Rows[numOfRows]["Quantity"].ToString());
                 numOfRows++;
             }
+            //display order total
             lblTotalPrice.Text = orderTotal.ToString("C");
         }
     }
