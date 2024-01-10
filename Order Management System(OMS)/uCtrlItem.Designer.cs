@@ -204,7 +204,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Location = new System.Drawing.Point(6, 182);
             this.btnDelete.Name = "btnDelete";
