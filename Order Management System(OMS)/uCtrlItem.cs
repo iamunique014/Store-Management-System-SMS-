@@ -34,11 +34,21 @@ namespace Order_Management_System_OMS_
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Delete " + txtName.Text, "DELETE RECORD: " + itemID, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if(MessageBox.Show("Deleted Records Cannot be recovered, Proceed", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Item item = new Item(int.Parse(itemID));
+                    int x = bll.DeleteProduct(item);
+                    dgvItems.DataSource = bll.GetProduct();
+                    MessageBox.Show("Item Deleted!");
+                }
+                else
+                {
+                    MessageBox.Show("Delete Aborted");
+                }
+            }
             
-            Item item = new Item(int.Parse(itemID));
-            int x = bll.DeleteProduct(item);
-            dgvItems.DataSource= bll.GetProduct();
-            MessageBox.Show("Item Deleted!");
         }
 
         private void uCtrlItem_Load(object sender, EventArgs e)
