@@ -32,7 +32,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpItemDate = new System.Windows.Forms.DateTimePicker();
-            this.txtDesign = new System.Windows.Forms.TextBox();
+            this.txtManufacturer = new System.Windows.Forms.TextBox();
             this.lblDesign = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -71,7 +71,7 @@
             // 
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.dtpItemDate);
-            this.groupBox3.Controls.Add(this.txtDesign);
+            this.groupBox3.Controls.Add(this.txtManufacturer);
             this.groupBox3.Controls.Add(this.lblDesign);
             this.groupBox3.Controls.Add(this.cmbCategory);
             this.groupBox3.Controls.Add(this.txtName);
@@ -101,12 +101,12 @@
             this.dtpItemDate.Size = new System.Drawing.Size(274, 29);
             this.dtpItemDate.TabIndex = 22;
             // 
-            // txtDesign
+            // txtManufacturer
             // 
-            this.txtDesign.Location = new System.Drawing.Point(202, 53);
-            this.txtDesign.Name = "txtDesign";
-            this.txtDesign.Size = new System.Drawing.Size(228, 29);
-            this.txtDesign.TabIndex = 20;
+            this.txtManufacturer.Location = new System.Drawing.Point(202, 53);
+            this.txtManufacturer.Name = "txtManufacturer";
+            this.txtManufacturer.Size = new System.Drawing.Size(228, 29);
+            this.txtManufacturer.TabIndex = 20;
             // 
             // lblDesign
             // 
@@ -279,7 +279,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpItemDate;
-        private System.Windows.Forms.TextBox txtDesign;
+        private System.Windows.Forms.TextBox txtManufacturer;
         private System.Windows.Forms.Label lblDesign;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.TextBox txtName;
