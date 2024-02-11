@@ -19,7 +19,8 @@ namespace Order_Management_System_OMS_
             InitializeComponent();
         }
         BusinessLogicLayer bll = new BusinessLogicLayer();
-        public string customerID = "1";
+        public string customerID = "1", errorMessage;
+        bool empty = false;
         private void uCtrlCustomer_Load(object sender, EventArgs e)
         {
             dgvCustomers.DataSource = bll.GetClients();
@@ -27,11 +28,47 @@ namespace Order_Management_System_OMS_
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer(int.Parse(customerID), txtName.Text, txtSurname.Text, txtEmail.Text, txtAddress.Text, DateTime.Parse(dtpDate.Text));
-            int x = bll.InsertClient(customer);
-            dgvCustomers.DataSource = bll.GetClients();
+            //void method that helps make sure no empty string is sent to the database 
+            HandleEmptyString(errorMessage, empty);
+            
         }
+        public void  HandleEmptyString(string errorMessage, bool empty)
+        {
+            //check for empty text Boxes the create or increment to errorMessage
+            if(txtName.Text == "")
+            {
+                errorMessage = "CUSTOMER NAME IS REQUIRED";
+                empty = true;
+            }
+            if (txtSurname.Text == "")
+            {
+                errorMessage = errorMessage + "\nCUSTOMER SURNAME IS REQUIRED";
+                empty = true;
+            }
+            if (txtAddress.Text == "")
+            {
+                errorMessage = errorMessage + "\nCUSTOMER ADDRESS IS REQUIRED";
+                empty = true;
+            }
+            if (txtEmail.Text == "")
+            {
+                errorMessage = errorMessage + "\nCUSTOMER EMAIL IS REQUIRED";
+                empty = true;
+            }
 
+            //check if there was any empty text if not then send Data to Database else Display Error Message
+            if (empty == false)
+            {
+                Customer customer = new Customer(int.Parse(customerID), txtName.Text, txtSurname.Text, txtEmail.Text, txtAddress.Text, DateTime.Parse(dtpDate.Text));
+                int x = bll.InsertClient(customer);
+                dgvCustomers.DataSource = bll.GetClients();
+            }
+            else
+            {
+                MessageBox.Show(errorMessage, "PLEASE ENTER REQUIRED DATA");
+            }
+
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer(int.Parse(customerID), txtName.Text, txtSurname.Text, txtEmail.Text, txtAddress.Text, DateTime.Parse(dtpDate.Text));
