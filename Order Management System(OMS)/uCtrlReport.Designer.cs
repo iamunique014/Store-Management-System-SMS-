@@ -53,9 +53,9 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.Red;
-            this.groupBox4.Location = new System.Drawing.Point(23, 301);
+            this.groupBox4.Location = new System.Drawing.Point(403, 83);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(755, 214);
+            this.groupBox4.Size = new System.Drawing.Size(359, 214);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Order Items";
@@ -65,14 +65,14 @@
             this.dgvOrderItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderItem.Location = new System.Drawing.Point(6, 49);
             this.dgvOrderItem.Name = "dgvOrderItem";
-            this.dgvOrderItem.Size = new System.Drawing.Size(743, 160);
+            this.dgvOrderItem.Size = new System.Drawing.Size(347, 160);
             this.dgvOrderItem.TabIndex = 3;
             // 
             // lblOrderDate
             // 
             this.lblOrderDate.AutoSize = true;
             this.lblOrderDate.ForeColor = System.Drawing.Color.White;
-            this.lblOrderDate.Location = new System.Drawing.Point(460, 25);
+            this.lblOrderDate.Location = new System.Drawing.Point(171, 25);
             this.lblOrderDate.Name = "lblOrderDate";
             this.lblOrderDate.Size = new System.Drawing.Size(94, 21);
             this.lblOrderDate.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(128, 25);
+            this.label4.Location = new System.Drawing.Point(18, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 21);
             this.label4.TabIndex = 0;
@@ -95,9 +95,9 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Red;
-            this.groupBox3.Location = new System.Drawing.Point(23, 88);
+            this.groupBox3.Location = new System.Drawing.Point(23, 103);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(755, 207);
+            this.groupBox3.Size = new System.Drawing.Size(373, 214);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Orders";
@@ -105,9 +105,9 @@
             // dgvOrder
             // 
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Location = new System.Drawing.Point(6, 39);
+            this.dgvOrder.Location = new System.Drawing.Point(6, 48);
             this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.Size = new System.Drawing.Size(743, 160);
+            this.dgvOrder.Size = new System.Drawing.Size(361, 161);
             this.dgvOrder.TabIndex = 2;
             this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             // 
@@ -115,7 +115,7 @@
             // 
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.ForeColor = System.Drawing.Color.White;
-            this.lblCustomerName.Location = new System.Drawing.Point(449, 15);
+            this.lblCustomerName.Location = new System.Drawing.Point(234, 25);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(0, 21);
             this.lblCustomerName.TabIndex = 1;
@@ -124,7 +124,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(128, 15);
+            this.label2.Location = new System.Drawing.Point(24, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 0;
@@ -132,6 +132,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.cmbCustomer);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,7 +167,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "uCtrlReport";

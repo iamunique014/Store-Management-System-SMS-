@@ -26,7 +26,7 @@ namespace Order_Management_System_OMS_
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             categoryID = cmbCategory.SelectedValue.ToString();
-            Item item = new Item(int.Parse(categoryID), int.Parse(itemID), txtName.Text, txtDesign.Text, txtPrice.Text, DateTime.Parse(dtpItemDate.Text));
+            Item item = new Item(int.Parse(categoryID), int.Parse(itemID), txtName.Text, txtManufacturer.Text, txtPrice.Text, DateTime.Parse(dtpItemDate.Text));
             int x = bll.UpdateProduct(item);
             dgvItems.DataSource = bll.GetProduct();
             MessageBox.Show("Item Updated");
@@ -34,11 +34,21 @@ namespace Order_Management_System_OMS_
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Delete " + txtName.Text, "DELETE RECORD: " + itemID, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if(MessageBox.Show("Deleted Records Cannot be recovered, Proceed", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Item item = new Item(int.Parse(itemID));
+                    int x = bll.DeleteProduct(item);
+                    dgvItems.DataSource = bll.GetProduct();
+                    MessageBox.Show("Item Deleted!");
+                }
+                else
+                {
+                    MessageBox.Show("Delete Aborted");
+                }
+            }
             
-            Item item = new Item(int.Parse(itemID));
-            int x = bll.DeleteProduct(item);
-            dgvItems.DataSource= bll.GetProduct();
-            MessageBox.Show("Item Deleted!");
         }
 
         private void uCtrlItem_Load(object sender, EventArgs e)
@@ -68,7 +78,7 @@ namespace Order_Management_System_OMS_
                 errorMessage = "ITEM NAME IS REQUIRED";
                 empty = true;
             }
-            if (txtDesign.Text == "")
+            if (txtManufacturer.Text == "")
             {
                 errorMessage = errorMessage + "\nITEM MANUFACTURER IS REQUIRED";
                 empty = true;
@@ -88,7 +98,7 @@ namespace Order_Management_System_OMS_
             if (empty == false)
             {
                 categoryID = cmbCategory.SelectedValue.ToString();
-                Item item = new Item(int.Parse(categoryID), int.Parse(itemID), txtName.Text, txtDesign.Text, txtPrice.Text, DateTime.Parse(dtpItemDate.Text));
+                Item item = new Item(int.Parse(categoryID), int.Parse(itemID), txtName.Text, txtManufacturer.Text, txtPrice.Text, DateTime.Parse(dtpItemDate.Text));
                 int x = bll.InsertProduct(item);
                 dgvItems.DataSource = bll.GetProduct();
             }
@@ -112,7 +122,7 @@ namespace Order_Management_System_OMS_
                 itemID = row.Cells[0].Value.ToString(); 
                 txtName.Text = row.Cells[1].Value.ToString();
                 cmbCategory.Text = row.Cells[2].Value.ToString();
-                txtDesign.Text = row.Cells[3].Value.ToString();
+                txtManufacturer.Text = row.Cells[3].Value.ToString();
                 txtPrice.Text = row.Cells[4].Value.ToString();
             }
         }

@@ -80,7 +80,8 @@
             this.btnIfo.Name = "btnIfo";
             this.btnIfo.Size = new System.Drawing.Size(200, 48);
             this.btnIfo.TabIndex = 6;
-            this.btnIfo.Text = "Info";
+            this.btnIfo.Text = "                  Info";
+            this.btnIfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIfo.UseVisualStyleBackColor = false;
             // 
             // btnReports
@@ -93,7 +94,8 @@
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(200, 48);
             this.btnReports.TabIndex = 5;
-            this.btnReports.Text = "Reports";
+            this.btnReports.Text = "                 Reports";
+            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.UseVisualStyleBackColor = false;
             this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
@@ -107,7 +109,8 @@
             this.btnOrders.Name = "btnOrders";
             this.btnOrders.Size = new System.Drawing.Size(200, 48);
             this.btnOrders.TabIndex = 4;
-            this.btnOrders.Text = "Orders";
+            this.btnOrders.Text = "                 Orders";
+            this.btnOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrders.UseVisualStyleBackColor = false;
             this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
@@ -121,7 +124,8 @@
             this.btnItem.Name = "btnItem";
             this.btnItem.Size = new System.Drawing.Size(200, 48);
             this.btnItem.TabIndex = 3;
-            this.btnItem.Text = "Item";
+            this.btnItem.Text = "                 Item";
+            this.btnItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnItem.UseVisualStyleBackColor = false;
             this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
             // 
@@ -135,7 +139,8 @@
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(200, 48);
             this.btnCategory.TabIndex = 2;
-            this.btnCategory.Text = "Category";
+            this.btnCategory.Text = "                 Category";
+            this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategory.UseVisualStyleBackColor = false;
             this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
@@ -149,7 +154,7 @@
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(200, 48);
             this.btnCustomer.TabIndex = 0;
-            this.btnCustomer.Text = "Customer";
+            this.btnCustomer.Text = "        Customer";
             this.btnCustomer.UseVisualStyleBackColor = false;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 

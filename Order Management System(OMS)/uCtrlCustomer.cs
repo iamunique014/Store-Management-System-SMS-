@@ -78,9 +78,21 @@ namespace Order_Management_System_OMS_
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer(int.Parse(customerID));
-            int x = bll.DeleteClient(customer);
-            dgvCustomers.DataSource = bll.GetClients();
+            //Message to be shown when user wants to delete a record
+            string message = "Delete " + txtName.Text + " " + txtSurname.Text + "'S Record";
+
+            //Display the message with the record that the user is about to delete
+            if (MessageBox.Show(message, "Delete Record " + customerID, MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //Warning the user before deleting records
+                if (MessageBox.Show("Deleted Records Cannot be recovered, Prooced","Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Customer customer = new Customer(int.Parse(customerID));
+                    int x = bll.DeleteClient(customer);
+                    dgvCustomers.DataSource = bll.GetClients();
+                }
+            }
+           
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -91,10 +103,18 @@ namespace Order_Management_System_OMS_
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             dgvCustomers.DataSource = bll.GetClients();
+
+            //Clear all crontrols
+            txtName.Text = "";
+            txtSurname.Text = "";
+            txtAddress.Text = "";
+            txtEmail.Text = "";
+            customerID = "0";
         }
 
         private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Get seleted record and display to relavant controls
 
             if(e.RowIndex >= 0) 
             { 
